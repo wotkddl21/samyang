@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: container1
-        image: localhost:5000/dockertest
+        image: wotkddl21/dockertest
         ports:
         - containerPort: 3000
