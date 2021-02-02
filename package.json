@@ -1,0 +1,6 @@
+{
+	"name":"Dockerfiletest",
+	"dependencies":{
+		"express":"^4.14.0"
+	}
+}
