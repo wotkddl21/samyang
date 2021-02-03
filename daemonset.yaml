@@ -1,19 +1,18 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: DaemonSet
 metadata:
-  name: astatefulset
+  name: daemon
 spec:
-  serviceName: statefulset
   selector:
     matchLabels:
-      app: astatefulset
+      app: daemon
   template:
     metadata:
       labels:
-        app: astatefulset
+        app: daemon
     spec:
       containers:
       - name: container1
-        image: wotkddl21/dockertest
+        image: sangsoodong/dockertest
         ports:
         - containerPort: 3000
