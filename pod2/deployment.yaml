@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pod1
+  name: pod2
 spec:
   selector:
     matchLabels:
-      app: pod1
+      app: pod2
   template:
     metadata:
       labels:
-        app: pod1
+        app: pod2
     spec:
       containers:
-      - name: container1
-        image: {dockerhub username}/dockertest  # ex) sangsoodong/dockertest
+      - name: container2
+        image: {dockerhub username}/dockertest2  # ex) sangsoodong/dockertest2 
         ports:
         - containerPort: 3000
