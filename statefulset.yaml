@@ -1,16 +1,16 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: deploy-replica1
+  name: astatefulset
 spec:
-  replicas: 3
+  serviceName: statefulset
   selector:
     matchLabels:
-      app: deploy-replica1
+      app: astatefulset
   template:
     metadata:
       labels:
-        app: deploy-replica1
+        app: astatefulset
     spec:
       containers:
       - name: container1
