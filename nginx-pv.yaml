@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-pv-watch
+  labels:
+    app: nginx-pv-watch
+spec:
+  selector:
+    matchLabels:
+      app: nginx-pv-watch
+  template:
+    metadata:
+      labels:
+        app: nginx-pv-watch
+    spec:
+      containers:
+      - name: nginx-pv-watcher
+        image: wotkddl21/node
+        volumeMounts:
+        - name: nginx-pv
+          mountPath: /app
+      volumes:
+      - name: nginx-pv
+        persistentVolumeClaim:
+          claimName: nginx-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-pv-write
+  labels:
+    app: nginx-pv-write
+spec:
+  selector:
+    matchLabels:
+      app: nginx-pv-write
+  template:
+    metadata:
+      labels:
+        app: nginx-pv-write
+    spec:
+      containers:
+      - name: nginx-pv-writer
+        image: wotkddl21/python
+        volumeMounts:
+        - name: nginx-pv
+          mountPath: /app
+      volumes:
+        - name: nginx-pv
+          persistentVolumeClaim:
+            claimName: nginx-pvc
+
+
+
