@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nfs-write
+  labels:
+    app: nfs-write
+spec:
+  selector:
+    matchLabels:
+      app: nfs-write
+  template:
+    metadata:
+      labels:
+        app: nfs-write
+    spec:
+      containers:
+      - name: nfs-writer
+        image: wotkddl21/python
+        volumeMounts:
+        - name: nfs-pv
+          mountPath: /app
+      volumes:
+        - name: nfs-pv
+          persistentVolumeClaim:
+            claimName: nfs-pvc
+
+
+

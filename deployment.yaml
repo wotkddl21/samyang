@@ -13,6 +13,7 @@ spec:
     spec:
       containers:
       - name: container1
-        image: {dockerhub username}/dockertest  # ex) sangsoodong/dockertest
+        image: sangsoodong/dockertest  # ex) sangsoodong/dockertest
+        #        image: {dockerhub username}/dockertest  # ex) sangsoodong/dockertest
         ports:
         - containerPort: 3000
